@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AC3A5760-3118-4152-8E8C-B60FD9E7A660}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{69B51992-3BB9-4EC2-B27A-3CE5F795F0A3}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "RutokenVpnClient", "src\RutokenVpnClient\RutokenVpnClient.xproj", "{CCD028EF-605B-4C53-A272-7DA0A092056E}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "RutokenVpnClient.Domain", "src\RutokenVpnClient.Domain\RutokenVpnClient.Domain.xproj", "{E61B34F8-BE98-447D-8CA3-F54FF5354753}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "RutokenVpnClient.ConsoleApp", "src\RutokenVpnClient.ConsoleApp\RutokenVpnClient.ConsoleApp.xproj", "{6BC9E70E-DACC-4508-951B-EDFBCA138F65}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCD028EF-605B-4C53-A272-7DA0A092056E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCD028EF-605B-4C53-A272-7DA0A092056E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCD028EF-605B-4C53-A272-7DA0A092056E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCD028EF-605B-4C53-A272-7DA0A092056E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E61B34F8-BE98-447D-8CA3-F54FF5354753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E61B34F8-BE98-447D-8CA3-F54FF5354753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E61B34F8-BE98-447D-8CA3-F54FF5354753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E61B34F8-BE98-447D-8CA3-F54FF5354753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BC9E70E-DACC-4508-951B-EDFBCA138F65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BC9E70E-DACC-4508-951B-EDFBCA138F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BC9E70E-DACC-4508-951B-EDFBCA138F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BC9E70E-DACC-4508-951B-EDFBCA138F65}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CCD028EF-605B-4C53-A272-7DA0A092056E} = {AC3A5760-3118-4152-8E8C-B60FD9E7A660}
+		{E61B34F8-BE98-447D-8CA3-F54FF5354753} = {AC3A5760-3118-4152-8E8C-B60FD9E7A660}
+		{6BC9E70E-DACC-4508-951B-EDFBCA138F65} = {AC3A5760-3118-4152-8E8C-B60FD9E7A660}
+	EndGlobalSection
+EndGlobal
