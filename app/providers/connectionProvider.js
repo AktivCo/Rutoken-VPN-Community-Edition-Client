@@ -49,7 +49,9 @@ class ConnectionProvider {
     _quit = null;
 
 
-    constructor(resources, contents, appIcon, quit) {
+    constructor(resources, contents, appIcon, isOpenSource, quit) {
+
+        this.IS_OPEN_SOURCE = isOpenSource;
 
         this._resources = resources;
         this._openVpnProvider = new OpenVpnProvider(resources);
@@ -107,7 +109,7 @@ class ConnectionProvider {
         });
 
 
-        ipc.on('sendPin', (pin) => {
+        ipc.on('sendPin', (event, pin) => {
 
             this._status = ConnectionStatus.LoadingAfterPin;
             this._appIcon.setIcon('connecting');
@@ -325,36 +327,46 @@ class ConnectionProvider {
 
         this._openVpnProvider.CreateVpnConfig(this._configProvider.getVpnServerConfig(), this._pkcsIds[id].pkcsId);
 
-        const file = this._resources.logServicePath;
 
-        this._tail = new Tail(file);
-
-        this._tail.watch();
-
-        this._tail.on('line', data => {
-            this.processOutputDataHandler(data);
-        });
 
 
 
         // //init openvpn connection 
         if (process.platform !== 'darwin') {
-            serviceConnection((client) => {
-                this._vpnProcService = true;
-                console.log('connected to server!');
+            if(!this.IS_OPEN_SOURCE) {
 
-                let command = 'start:' + '"' + this._resources.openvpnPath + '"' + ' --config ' + '"' + this._resources.clientConfig + '"' + '\n';
-                client.write(command);
-            })
-                .catch(() => {
-                    this._tail.unwatch();
-                    this._status = ConnectionStatus.CertificatesList;
-                    this.sendVpnStatus();
+                const file = this._resources.logServicePath;
 
+                this._tail = new Tail(file);
+        
+                this._tail.watch();
+        
+                this._tail.on('line', data => {
+                    this.processOutputDataHandler(data);
                 });
 
-            // this._vpnProc = spawn(this._resources.openvpnPath, ['--config', this._resources.clientConfig]);
-            // this._vpnProc.stderr.on('data', this.processOutputDataHandler);
+                serviceConnection((client) => {
+                    this._vpnProcService = true;
+                    console.log('connected to server!');
+    
+                    let command = 'start:' + '"' + this._resources.openvpnPath + '"' + ' --config ' + '"' + this._resources.clientConfig + '"' + '\n';
+                    client.write(command);
+                })
+                    .catch(() => {
+                        this._tail.unwatch();
+                        this._status = ConnectionStatus.CertificatesList;
+                        this.sendVpnStatus();
+    
+                    });
+            }
+            else {
+                this._vpnProc = spawn(this._resources.openvpnPath, ['--config', this._resources.clientConfig]);
+                this._vpnProc.stderr.on('data', this.processOutputDataHandler);
+                this._vpnProc.stdout.on('data', this.processOutputDataHandler);
+            }
+
+
+
         }
         else {
             this._vpnProc = pty.spawn(this._resources.openvpnPath, ['--config', this._resources.clientConfig]);

@@ -7,6 +7,8 @@ const { ConnectionProvider } = require('./providers/connectionProvider');
 
 let usbDetect = require('usb-detection');
 
+const isOpenSource = true;
+
 const resources = {
     driverPath: process.platform === 'darwin' ? path.join(__dirname, 'executables', 'librtpkcs11ecp.dylib') : path.join(__dirname, 'executables', 'rtPKCS11ECP.dll'),
     openvpnPath: path.join(__dirname, 'executables', 'openvpn'),
@@ -150,7 +152,7 @@ class Main {
         }
 
 
-        Main._connectionProvider = new ConnectionProvider(resources, Main.mainWindow.webContents, iconManager, Main.quit);
+        Main._connectionProvider = new ConnectionProvider(resources, Main.mainWindow.webContents, iconManager, isOpenSource, Main.quit);
         Main._connectionProvider.start();
 
         if (Main.application.dock) {
