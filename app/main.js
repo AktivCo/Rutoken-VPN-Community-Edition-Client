@@ -109,7 +109,7 @@ class Main {
         const menuTemplate =
             [
                 {
-                    label: 'Рутокен VPN клиент',
+                    label: 'Рутокен VPN CE клиент',
                     click: () => {
                         Main.mainWindow.restore();
                         Main.mainWindow.focus();
@@ -135,7 +135,7 @@ class Main {
             Main.mainWindow.focus();
         });
 
-        applicationIcon.setToolTip('Рутокен VPN клиент');
+        applicationIcon.setToolTip('Рутокен VPN CE клиент');
         applicationIcon.setContextMenu(contextMenu);
 
 
