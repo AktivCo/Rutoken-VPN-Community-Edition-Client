@@ -1,0 +1,12 @@
+
+<div class="footer-content"  ng-show="connection.status === 10">
+    <div class="enter-pin">
+        <button type="button"
+                class="btn-red btn-large"
+                ng-disabled="connection.loading"
+                ng-click="stopVpn()"
+                autofocus>
+            <span> остановить соединение</span>
+        </button>         
+    </div>        
+</div>

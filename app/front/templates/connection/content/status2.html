@@ -1,0 +1,33 @@
+<div>
+    <div>
+        <h1>ВЫБОР ПОЛЬЗОВАТЕЛЯ</h1>
+        <p>Все готово для установки соединения. После выбора учетной записи нужно будет ввести PIN-код устройства.</p>
+    </div>
+    <table class="table-main" tabindex="0" arrow-selector items='connection.pkcsIds' select-item="selectItem">
+        <thead>
+            <tr>
+                <th style="width: 10%"></th>
+                <th>ПОЛЬЗОВАТЕЛЬ</th>
+                <th>СЕРТИФИКАТ </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in connection.pkcsIds track by $index" ng-click="selectItem(connection.pkcsIds, $index)" ng-class="{'selected':item.selected}">
+                <td style="width: 10%">
+                    <span class="token" />
+                </td>
+                <td><span style="font-weight: bold" ng-bind="item.userName"></span></td>
+                <td>
+                    <span ng-bind="item.certDate"></span>
+                    <br />
+                    <span style="color: red; font-weight: bold; font-size: 12px;"  ng-if="item.isExpiring">
+                        Сертификат скоро истечет
+                    </span>
+                    <span style="color: red; font-weight: bold; font-size: 12px;" ng-if="item.isDisabled">
+                        Срок действия истек
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

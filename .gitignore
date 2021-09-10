@@ -1,10 +1,8 @@
-*.dll
 
 #ignore thumbnails created by windows
 Thumbs.db
 #Ignore files build by Visual Studio
 *.obj
-*.exe
 *.pdb
 *.user
 *.aps
@@ -24,9 +22,27 @@ Thumbs.db
 [Dd]ebug*/
 *.lib
 *.sbr
+*.dat
 obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
-*.dll
-src/rutokenvpnclient/wwwroot/lib*
+*.ovpn
+#/app/main.bundle.js
+/app/app.bundle.js
+/node_modules/*
+/bower_components/*
+/app/node_modules/*
+/win/*
+.vs/*
+/config/*
+/app/vpnserverconfig.json
+launch.json
+/installer/*
+/mac/*
+/app/updateclientconfig.json
+
+!log.txt
+/typings
+openvpn*
+RutokenVpnService*

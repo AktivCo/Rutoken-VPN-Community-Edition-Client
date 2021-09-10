@@ -1,0 +1,41 @@
+﻿<header>
+    <span class="logo"></span>
+    <a ui-sref="index.about">О программе</a>
+</header>
+
+<div class="content">
+    <div ui-view="content"></div>    
+</div>
+
+<div class="footer">
+    <!--<div class="footer-content" ng-show="connection.status === 1">
+        1
+    </div>-->
+   
+    <div ui-view="footer"></div>
+    
+    <div class="footer-line">
+        <div class="status">
+            <span>Статус: </span>
+            <span ng-style="{color: connection.statusInfo.color}" ng-bind="connection.statusInfo.text"></span>            
+            <div class="status-img"><img  ng-src="{{connection.statusInfo.path}}" /></div>
+        </div>
+        <ul class="settings">
+            
+            <li class="update" ui-sref="index.update" ng-hide="connection.status === 7 || !updateModel.update" ui-sref-active="update-active"></li>
+            <li class="connect" ng-click="getCurrentConnectionStatus()" ng-class="{ connect_active:  $state.current.name.includes('connection') }"></li>
+            <!--<li class="log" ui-sref="index.about" ui-sref-active="log-active"></li>-->
+            <li class="clean" ui-sref="index.clean" ui-sref-active="clean-active"></li>
+            <li class="setting" ui-sref="index.settings" ui-sref-active="setting-active"></li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+<input id="#myLoader"
+        type="file"
+        nv-file-select
+        uploader="uploader" accept=".ovpn" multiple
+        style="visibility: hidden;" />

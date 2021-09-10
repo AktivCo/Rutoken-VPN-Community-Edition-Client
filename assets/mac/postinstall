@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+IFS=$'\n'
+export PATH="/usr/bin:/bin/:/usr/sbin/:/sbin"
+export PATH="/usr/bin:/bin/:/usr/sbin/:/sbin:$PATH"
+
+
+mkdir "/Library/Application Support/rutokenvpnclient"
+
+
+openvpn="/Applications/Рутокен VPN клиент.app/Contents/Resources/app/executables/openvpn"
+tapup="/Applications/Рутокен VPN клиент.app/Contents/Resources/app/updateScripts/tap-up.sh"
+tapdown="/Applications/Рутокен VPN клиент.app/Contents/Resources/app/updateScripts/tap-down.sh"
+updateLocalSh="/Applications/Рутокен VPN клиент.app/Contents/Resources/app/updateScripts/update.sh"
+
+
+updateSh="/Library/Application Support/rutokenvpnclient/update.sh"
+networksetup="/Library/Application Support/rutokenvpnclient/networksetup"
+installer="/Library/Application Support/rutokenvpnclient/installer"
+
+cp "/usr/sbin/networksetup" $networksetup
+cp "/usr/sbin/installer" $installer
+cp $updateLocalSh $updateSh
+
+
+for file in $openvpn $tapup $tapdown $updateSh $networksetup $installer
+do
+    chown root $file   
+    chmod 4777 $file
+done
+
+exit 0

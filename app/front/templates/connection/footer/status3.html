@@ -1,0 +1,18 @@
+<div class="footer-content"  ng-show="connection.status === 3">
+    <form name="form" class="enter-pin" novalidate>
+        <label>PIN-код</label>
+        <input style="margin-left: 20px;" type="password"
+                    ng-model="connectionModel.pin"
+                    ng-required="true"                    
+                    placeholder="Введите PIN-код"
+                    ng-enter="sendPin()"
+                    autofocus
+                    >
+            <button style="margin-left: 20px;" class="btn-red"
+                    type="button"
+                    ng-disabled="form.$invalid || connection.loading"
+                    ng-click="sendPin()">
+                <span>Войти</span>
+            </button>
+    </form>
+</div> 

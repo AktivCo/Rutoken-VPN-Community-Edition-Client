@@ -1,9 +1,0 @@
-{
-	"name": "ASP.NET",
-	"private": true,
-  "dependencies": {
-    "angular": "1.4.7",
-    "signalr": "2.2.0",
-    "bootstrap": "3.3.5"
-  }
-}
