@@ -1,6 +1,5 @@
 const { app, BrowserWindow, Tray, Menu, shell } = require('electron')
 const path = require('path')
-const fs = require('fs');
 
 
 const { ConnectionProvider } = require('./providers/connectionProvider');
@@ -77,7 +76,7 @@ class Main {
             new Main.BrowserWindow({
                 height: 630,
                 width: 492,
-                title: 'RutokenVpnClient',
+                title: 'RutokenVpnClientCE',
                 webPreferences: {
                     nodeIntegration: true
                 },

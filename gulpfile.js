@@ -10,8 +10,8 @@ var gulp = require('gulp'),
 
 // create the gulp task
 gulp.task('copyexec', () => {
-    gulp.src(['./executables/*']).pipe(gulp.dest('./win/rutokenvpnclient-win32-ia32/executables'));
-    gulp.src(['./config/*']).pipe(gulp.dest('./win/rutokenvpnclient-win32-ia32/config'));
+    gulp.src(['./executables/*']).pipe(gulp.dest('./win/rutokenvpnclientce-win32-ia32/executables'));
+    gulp.src(['./config/*']).pipe(gulp.dest('./win/rutokenvpnclientce-win32-ia32/config'));
 });
 
 gulp.task('setNsis', () => {

@@ -41,6 +41,9 @@ launch.json
 /installer/*
 /mac/*
 /app/updateclientconfig.json
+package-lock.json
+/app/package-lock.json
+/app/executables/*
 
 !log.txt
 /typings

@@ -125,7 +125,8 @@ class ConnectionProvider {
             }
         });
 
-        ipc.on('startUpdate', () => {
+        // eslint-disable-next-line no-unused-vars
+        ipc.on('startUpdate', (event) => {
 
             var args = undefined;
             var prog = undefined;
@@ -177,7 +178,8 @@ class ConnectionProvider {
 
         });
 
-        ipc.on('setStatusToInit', () => {
+        // eslint-disable-next-line no-unused-vars
+        ipc.on('setStatusToInit', (event, data) => {
 
             this._status = ConnectionStatus.CertificatesList;
 
@@ -187,17 +189,15 @@ class ConnectionProvider {
             });
         });
 
-        ipc.on('saveConfig', (data) => {
-
+        ipc.on('saveConfig', (event, data) => {
             this._status = ConnectionStatus.CertificatesList;
 
             this._configProvider.saveVpnServerConfig(JSON.stringify(data, null, 4));
 
             this.killer().then(() => this.sendVpnStatus());
-
-
         });
-        ipc.on('saveSettings', (data) => {
+
+        ipc.on('saveSettings', (event, data) => {
 
             this.sendVpnStatus();
 

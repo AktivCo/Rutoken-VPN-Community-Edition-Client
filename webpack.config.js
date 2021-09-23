@@ -1,4 +1,4 @@
-﻿var path = require('path'); 
+var path = require('path'); 
 var webpack = require("webpack");
 var nodeExternals = require('webpack-node-externals');
 
@@ -56,6 +56,9 @@ module.exports = (env) => {
             extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
         },
         externals: [
+            nodeExternals({
+                modulesDir: './app/node_modules'
+            }),
             (function () {
                 var IGNORES = [
                     'electron'

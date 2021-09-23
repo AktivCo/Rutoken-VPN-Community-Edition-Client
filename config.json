@@ -1,6 +1,6 @@
 {
   "osx": {
-    "title": "RutokenVpnClient",
+    "title": "RutokenVpnClientCE",
     "contents": [
       {
         "x": 438,
@@ -16,7 +16,7 @@
     ]
   },
   "win": {
-    "title": "Рутокен VPN клиент",
+    "title": "Рутокен VPN CE клиент",
     "version": "1.0.1",
     "publisher": "Aktiv Co",
     "icon": "assets/win/rvpn.ico",
